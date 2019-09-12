@@ -206,7 +206,11 @@ Get Started
     list.peekLast(): 2
     list.size(): 3
 ```
-### 5. Debug
+### 5. Clean
+```
+    $ rm -rf data_structures/*.class
+```
+### 6. Debug
 * Ignore the following output during compile
     ```
     Note: Some input files use unchecked or unsafe operations.
