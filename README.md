@@ -1,18 +1,15 @@
 Circular Array
 ======
-1. Clone repository
-------
+##1. Clone repository
 ```
     $ git clone https://github.com/kentv0/circular-array.git
 ```
-2. Compile package
-------
+##2. Compile package
 ```
     $ cd circular-array
     $ javac data_structures/*
 ```
-3. Run test driver 1
-------
+##3. Run test driver 1
 ```
     $ java data_structures.Driver1
 
@@ -119,8 +116,7 @@ Circular Array
     list.contains(9): true
     list.contains(10): true
 ```
-4. Run test driver 2
-------
+##4. Run test driver 2
 ```
     $ java data_structures.Driver2
 
@@ -202,8 +198,7 @@ Circular Array
     list.peekLast(): 2
     list.size(): 3
 ```
-5. Debug
-------
+##5. Debug
 * Ignore the following output during compile
     ```
     Note: Some input files use unchecked or unsafe operations.
