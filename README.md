@@ -1,5 +1,8 @@
 Circular Array
 ======
+Description
+------
+The details of this project can be viewed in the document [here](https://github.com/kentv0/circular-array/blob/master/prompt.pdf).
 ## 1. Clone repository
 ```
     $ git clone https://github.com/kentv0/circular-array.git
