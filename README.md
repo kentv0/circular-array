@@ -12,7 +12,8 @@ Circular Array
 ## 3. Run test driver 1
 ```
     $ java data_structures.Driver1
-
+```
+```
     Expected output:
     1
     2 1
@@ -119,7 +120,8 @@ Circular Array
 ## 4. Run test driver 2
 ```
     $ java data_structures.Driver2
-
+```
+```
     Expected output:
     ====================================
 
