@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
  * @author      Kent Vo
  */
 public class ArrayLinearList<E> implements LinearListADT<E> {
-    /* A circular array list implementation for the LinearListADT interface. */
+/* A circular array list implementation for the LinearListADT interface. */
 
     private E[] storage;
     private int maxSize;
