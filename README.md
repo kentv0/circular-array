@@ -21,65 +21,48 @@ Get Started
 ```
 ```
     Expected output:
-    1
-    2 1
-    3 2 1
-    4 3 2 1
-    5 4 3 2 1
-    6 5 4 3 2 1
-    7 6 5 4 3 2 1
-    8 7 6 5 4 3 2 1
-    9 8 7 6 5 4 3 2 1
-    10 9 8 7 6 5 4 3 2 1
-    9 8 7 6 5 4 3 2 1
-    8 7 6 5 4 3 2 1
-    7 6 5 4 3 2 1
-    6 5 4 3 2 1
-    5 4 3 2 1
-    4 3 2 1
-    3 2 1
-    2 1
-    1
+    Testing addFirst(1):      1
+    Testing addFirst(2):      2 1
+    Testing addFirst(3):      3 2 1
+    Testing addFirst(4):      4 3 2 1
+    Testing addFirst(5):      5 4 3 2 1
+    Testing addFirst(6):      6 5 4 3 2 1
+    Testing addFirst(7):      7 6 5 4 3 2 1
+    Testing addFirst(8):      8 7 6 5 4 3 2 1
+    Testing addFirst(9):      9 8 7 6 5 4 3 2 1
+    Testing addFirst(10):      10 9 8 7 6 5 4 3 2 1
+    Testing removeFirst():    9 8 7 6 5 4 3 2 1
+    Testing removeFirst():    8 7 6 5 4 3 2 1
+    Testing removeFirst():    7 6 5 4 3 2 1
+    Testing removeFirst():    6 5 4 3 2 1
+    Testing removeFirst():    5 4 3 2 1
+    Testing removeFirst():    4 3 2 1
+    Testing removeFirst():    3 2 1
+    Testing removeFirst():    2 1
+    Testing removeFirst():    1
+    Testing removeFirst():
 
+    Testing isEmpty()...passed!
 
+    Testing size() expected to be empty...Passed!
 
-    addFirst(-1)
+    Testing addFirst() and removeLast() on 7 integer 1000 times...passed!
 
-    Size: 1
-    Order: -1
+    Testing addFirst(-1)...passed!
 
-    ====================================
+    Testing size(). Returned 1...Passed!
 
-    list.find(-1): -1
+    Testing find(-1). Returned -1...Passed!
 
-    ====================================
+    Testing peekLast(). Returned -1...Passed!
 
-    list.peekLast(): -1
+    Testing clear()...passed!
 
-    ====================================
+    Testing addLast(-1)...passed!
 
-    list.clear()
+    Testing peekFirst()...Returned -1 passed!
 
-    Size: 0
-    Order:
-
-    ====================================
-
-    addLast(-1)
-
-    Size: 1
-    Order: -1
-
-    ====================================
-
-    list.peekFirst(): -1
-
-    ====================================
-
-    list.clear()
-
-    Size: 0
-    Order:
+    Testing clear()...passed!
 
     ====================================
 
@@ -99,29 +82,29 @@ Get Started
 
     ====================================
 
-    list.find(1): 1
-    list.find(2): 2
-    list.find(3): 3
-    list.find(4): 4
-    list.find(5): 5
-    list.find(6): 6
-    list.find(7): 7
-    list.find(8): 8
-    list.find(9): 9
-    list.find(10): 10
+    find(1): 1 found!
+    find(2): 2 found!
+    find(3): 3 found!
+    find(4): 4 found!
+    find(5): 5 found!
+    find(6): 6 found!
+    find(7): 7 found!
+    find(8): 8 found!
+    find(9): 9 found!
+    find(10): 10 found!
 
     ====================================
 
-    list.contains(1): true
-    list.contains(2): true
-    list.contains(3): true
-    list.contains(4): true
-    list.contains(5): true
-    list.contains(6): true
-    list.contains(7): true
-    list.contains(8): true
-    list.contains(9): true
-    list.contains(10): true
+    contains(1): true
+    contains(2): true
+    contains(3): true
+    contains(4): true
+    contains(5): true
+    contains(6): true
+    contains(7): true
+    contains(8): true
+    contains(9): true
+    contains(10): true
 ```
 ### 4. Run test driver 2
 ```
@@ -131,7 +114,7 @@ Get Started
     Expected output:
     ====================================
 
-    list.addLast(1)
+    addLast(1)
 
     Pointer:     F  R
     Index:      [0][1][2][3][4][5][6]
@@ -141,7 +124,7 @@ Get Started
 
     ====================================
 
-    list.addLast(2)
+    addLast(2)
 
     Pointer:     F     R
     Index:      [0][1][2][3][4][5][6]
@@ -151,7 +134,7 @@ Get Started
 
     ====================================
 
-    list.addFirst(3)
+    addFirst(3)
 
     Pointer:              R     F
     Index:      [0][1][2][3][4][5][6]
@@ -161,7 +144,7 @@ Get Started
 
     ====================================
 
-    list.addFirst(4)
+    addFirst(4)
 
     Pointer:              R  F
     Index:      [0][1][2][3][4][5][6]
@@ -171,7 +154,7 @@ Get Started
 
     ====================================
 
-    list.addFirst(5)
+    addFirst(5)
 
     Pointer:              RF
     Index:      [0][1][2][3][4][5][6]
@@ -182,7 +165,7 @@ Get Started
     ====================================
 
 
-    list.removeFirst(): 5
+    removeFirst(): 5
 
     Pointer:              R  F
     Index:      [0][1][2][3][4][5][6]
@@ -193,18 +176,18 @@ Get Started
     NOTE: Technically the value of 5 is
     still at index 4, but the iterator
     skips over it and iterates from
-    index 5 and onwards.
+    index 5 and onwards as a form of deletion.
 
     ====================================
 
      4 3 1 2
-    list.remove(3)
+    remove(3)
      4 1 2
 
     Does the list contain 3? false
-    list.peekFirst(): 4
-    list.peekLast(): 2
-    list.size(): 3
+    peekFirst(): 4
+    peekLast(): 2
+    size(): 3
 ```
 ### 5. Clean
 ```
