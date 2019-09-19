@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 /**
  * The ArrayLinearList implementation Class for {@link LinearListADT.class}.
  *
- * @version     0.1.0 01 Oct 2015
+ * @version     0.1.0 01 Sep 2015
  * @author      Kent Vo
  */
 public class ArrayLinearList<E> implements LinearListADT<E> {
@@ -44,8 +44,9 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
     public boolean addFirst(E obj) {
         if(currentSize == maxSize) {
             return false;
+        } else {
+            storage[front--] = obj;
         }
-        storage[front--] = obj;
 
         if(front == -1) {
             front += maxSize;
@@ -63,8 +64,9 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
     public boolean addLast(E obj) {
         if(currentSize == maxSize) {
             return false;
+        } else {
+            storage[rear++] = obj;
         }
-        storage[rear++] = obj;
 
         if(rear == maxSize) {
             rear = 0;
@@ -76,79 +78,73 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
     /**
      * Remove the object at the beginning of the list.
      *
-     * @return the removed object; otherwise null if list is empty
+     * @return the removed object; otherwise null
      */
     public E removeFirst() {
         E tmp;
 
         if(currentSize == 0) {
             return null;
-        }
-
-        if(front == (maxSize - 1)) {
+        } else if(front == (maxSize - 1)) {
             tmp = storage[0];
             front = 0;
             currentSize -= 1;
             return tmp;
+        } else {
+            tmp = storage[++front];
+            currentSize -= 1;
+            return tmp;
         }
-        tmp = storage[++front];
-        currentSize -= 1;
-        return tmp;
     }
 
     /**
     * Remove the object at the end of the list.
     *
-    * @return the removed object; otherwise null if list is empty
+    * @return the removed object; otherwise null
     */
     public E removeLast() {
         E tmp;
 
         if(currentSize == 0) {
             return null;
-        }
-
-        if(rear == 0) {
+        } else if(rear == 0) {
             tmp = storage[maxSize - 1];
             rear = maxSize - 1;
             currentSize -= 1;
             return tmp;
+        } else {
+            tmp = storage[--rear];
+            currentSize -= 1;
+            return tmp;
         }
-        tmp = storage[--rear];
-        currentSize -= 1;
-        return tmp;
     }
 
     /**
      * Remove a specific object from the list.
      *
      * @param obj the object to remove
-     * @return the removed object; otherwise null if list is empty
+     * @return the removed object; otherwise null
      */
     public E remove(E obj) {
-        if(currentSize == 0) {
-            return null;
-        }
         E tmp;
         int position;
         position = indexOf(obj);
 
-        if(position >= 0) {
+        if(currentSize == 0) {
+            return null;
+        } else if(position >= 0) {
             tmp = storage[position];
 
                 if(tmp == obj) {
-
-                    if((position == (rear - 1)) || (rear == 0 && position == (maxSize - 1))) {
+                    if((position == (rear - 1)) ||
+                            (rear == 0 && position == (maxSize - 1))) {
                         removeLast();
                         return tmp;
-                    }
-
-                    if(position == (front +1) || (front == (maxSize -1) && position == 0)) {
+                    } else if(position == (front +1) ||
+                            (front == (maxSize -1) && position == 0)) {
                         removeFirst();
                         return tmp;
-                    }
-
-                    if(currentSize == 1) {
+                    } else if(currentSize == 1) {
                         removeLast();
                         return tmp;
                     }
@@ -178,9 +174,7 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
     public E peekFirst() {
         if(currentSize == 0) {
             return null;
-        }
-
-        if(front == (maxSize - 1)) {
+        } else if(front == (maxSize - 1)) {
             return storage[0];
         }
         return storage[front + 1];
@@ -194,9 +188,7 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
     public E peekLast() {
         if(currentSize == 0) {
             return null;
-        }
-
-        if(rear == 0) {
+        } else if(rear == 0) {
             return storage[maxSize -1];
         }
         return storage[rear - 1];
@@ -209,10 +201,7 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
      * @return true if the object is found; otherwise false
      */
     public boolean contains(E obj) {
-        if(find(obj) != null) {
-            return true;
-        }
-        return false;
+        return (find(obj) != null ? true : false);
     }
 
     /**
@@ -222,19 +211,18 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
      * @return the found object; otherwise null
      */
     public E find(E obj) {
+        int count = 0;
         int index = front + 1;
 
         if(index == maxSize) {
             index = 0;
         }
-        int count = 0;
 
         while(count != currentSize) {
-
             if(index == maxSize) {
                 index = 0;
             }
-
+            
             if(((Comparable<E>)obj).compareTo(storage[index]) == 0) {
                 return storage[index];
             }
@@ -259,10 +247,7 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
      * @return true if list is empty; otherwise false
      */
     public boolean isEmpty() {
-        if(currentSize == 0) {
-            return true;
-        }
-        return false;
+        return (currentSize == 0 ? true : false);
     }
 
     /**
@@ -271,10 +256,7 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
      * @return true if list is full; otherwise false
      */
     public boolean isFull() {
-        if(currentSize == maxSize) {
-            return true;
-        }
-        return false;
+        return (currentSize == maxSize ? true : false);
     }
     
     /**
@@ -297,15 +279,15 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
     
     /**
      * Implementation for the iterator of the object in the list.
+     *
+     * @throws NoSuchElementException if object does not exist
+     * @throws UnsupportedOperationException for iterator remove
      */
     private class IteratorHelper<E> implements Iterator<E> {
-        private int index;
-        private long count;
+        private int index = front;
+        private long count = 0;
 
-        public IteratorHelper() {
-            index = front;
-            count = 0;
-        }
+        public IteratorHelper() {}
         
         public boolean hasNext() {
             return(count != currentSize);
@@ -336,15 +318,14 @@ public class ArrayLinearList<E> implements LinearListADT<E> {
      * @return the integer value for the index; otherwise -1
      */
     private int indexOf(E obj) {
+        int count = 0;
         int index = front + 1;
 
         if(index == maxSize) {
             index = 0;
         }
-        int count = 0;
 
         while(count != currentSize) {
-
             if(index == maxSize) {
                 index = 0;
             }

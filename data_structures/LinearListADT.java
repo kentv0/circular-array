@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 /**
  * The LinearListADT interface Class.
  *
- * @version     0.1.0 01 Oct 2015
+ * @version     0.1.0 01 Sep 2015
  * @author      Alan Riggins
  */
 public interface LinearListADT<E> extends Iterable<E> {

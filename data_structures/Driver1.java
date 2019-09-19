@@ -3,7 +3,7 @@ package data_structures;
 /**
  * The Driver1 test driver Class for {@link ArrayLinearList.class}.
  *
- * @version     0.1.0 01 Oct 2015
+ * @version     0.1.0 01 Sep 2015
  * @author      Kent Vo
  */
 public class Driver1 {
