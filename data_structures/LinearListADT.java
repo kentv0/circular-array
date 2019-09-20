@@ -4,13 +4,12 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * The LinearListADT interface Class.
+ * The LinearListADT interface Class for data structures.
  *
  * @version     0.1.0 01 Sep 2015
  * @author      Alan Riggins
  */
 public interface LinearListADT<E> extends Iterable<E> {
-
     public static final int DEFAULT_MAX_CAPACITY = 100; 
 
     // Adds the Object obj to the beginning of list and returns true if the list is not full. 
