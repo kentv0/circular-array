@@ -1,10 +1,10 @@
-package data_structures;
+import data_structures.ArrayLinearList;
 
 /**
  * The Driver1 test driver Class for {@link ArrayLinearList.class}.
  *
  * @version     0.1.0 01 Sep 2015
- * @author      Kent Vo
+ * @author      Alan Riggins
  */
 public class Driver1 {
 /* Test driver class to test the methods of the ArrayLinearList Class. */
